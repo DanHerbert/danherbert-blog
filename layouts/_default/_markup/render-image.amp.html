@@ -1,0 +1,40 @@
+{{ $original := .Page.Resources.GetMatch (path.Clean .Destination) }}
+{{ $img := $original }}
+{{ $img2x := $original }}
+{{ $img3x := $original }}
+{{ $img4x := $original }}
+<!-- Max content width is 720px -->
+{{- if gt $original.Width 720 }}
+  {{ $img = $original.Resize "720x" }}
+{{- end }}
+{{- if gt $original.Width 1440 }}
+  {{ $img2x = $original.Resize "1440x" }}
+{{- end }}
+{{- if gt $original.Width 2160 }}
+  {{ $img3x = $original.Resize "2160x" }}
+{{- end }}
+{{- if gt $original.Width 2880 }}
+  {{ $img4x = $original.Resize "2880x" }}
+{{- end }}
+<amp-img
+    src="{{ $img.RelPermalink | safeURL }}"
+    srcset="{{ $img.RelPermalink | safeURL }},
+            {{/*
+               * These conditions intentionally check 1 step smaller to
+               * fallback to the biggest image available for higher dpi.
+               */}}
+            {{- if gt $original.Width 720 }}
+              {{ $img2x.RelPermalink | safeURL }} 2x,
+            {{- end}}
+            {{- if gt $original.Width 1440 }}
+              {{ $img3x.RelPermalink | safeURL }} 3x,
+            {{- end}}
+            {{- if gt $original.Width 2160 }}
+              {{ $img4x.RelPermalink | safeURL }} 4x
+            {{- end}}"
+    alt="{{ .Text }}"
+    {{ with .Title}} title="{{ . }}" {{ end }}
+    width="{{ $img.Width }}"
+    height="{{ $img.Height }}"
+    layout="responsive">
+</amp-img>

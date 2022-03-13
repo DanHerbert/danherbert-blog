@@ -1,0 +1,52 @@
+baseURL = "https://dan.herbert.io/blog/"
+languageCode = "en-us"
+title = "Dan Herbert's Blog"
+copyright = "&copy; 2022 [Dan Herbert (see full license)](/blog/copyright/)"
+theme = "PaperMod"
+disableHugoGeneratorInject = true
+
+
+[params]
+  # env = "production"
+  DateFormat = "2006-01-02"
+  disableSpecial1stPost = true
+  disableScrollToTop = true
+  disableThemeToggle = true
+  defaultTheme = "light"
+  ShowShareButtons = false
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowFullTextinRSS = true
+  comments = true
+
+paginate = 5
+
+# Syntax highlighting options.
+# pygmentsUseClasses = true
+# pygmentsCodefences = true # Highlight markdown code blocks
+# pygmentsOptions = "linenos=inline"
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    codeFences = true
+
+[privacy]
+  [privacy.twitter]
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[[menu.main]]
+  name = "About"
+  weight = 50
+  url = "about/"
+
+[outputs]
+  page = ['HTML', 'AMP']
+
+[imaging]
+  quality = 90

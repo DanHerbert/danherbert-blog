@@ -1,0 +1,13 @@
+{{- $pc := .Page.Site.Config.Privacy.Vimeo -}}
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $playlist := .Get "playlist" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "Vimeo Video" }}
+<amp-vimeo
+        {{- if $id }} data-videoid="{{ $id }}" {{ end }}
+        {{- if $playlist }} data-param-playlist="{{ . }}" {{ end }}
+        {{- if $pc.EnableDNT}} do-not-track {{ end }}
+        title="{{ $title }}"
+        layout="responsive"
+        width="480"
+        height="270"
+        {{ with .Get "autoplay" }}{{ if eq . "true" }}autoplay{{ end }}{{ end }}></amp-vimeo>

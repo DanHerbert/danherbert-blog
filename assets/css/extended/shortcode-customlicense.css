@@ -1,0 +1,93 @@
+.post-content .custom-license-icon-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.post-content .custom-license-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-license-icon-list {
+  --icon-size: 64px;
+}
+
+.post-content .custom-license-figure {
+  margin: 0;
+  text-align: center;
+  width: calc(2 * ( var(--icon-size) ) );
+}
+
+.post-content .custom-license-icon-link {
+  box-shadow: none;
+  display: inline-block;
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.post-content .custom-license-icon-img {
+  display: inline-block;
+  height: var(--icon-size);
+  margin: 0;
+  transition: 100ms linear;
+  transition-property: flex, height, margin, width;
+  width: var(--icon-size);
+  will-change: height, margin, width;
+}
+
+.post-content .custom-license-figcaption {
+  margin: 0;
+  transition: 100ms linear;
+  transition-property: font-size;
+  will-change: font-size;
+}
+
+/*
+ * Width of all 3 figures + 32px padding as breakpoint.
+ * calc & vars are badly supported in media queries so not used here.
+ */
+@media (max-width: 448px) {
+  .post-content .custom-license-icon-list {
+    flex-direction: column;
+  }
+
+  .post-content .custom-license-icon {
+    margin: 0 0 10px;
+  }
+
+  .post-content .custom-license-figure {
+    display: flex;
+    width: 100%;
+  }
+
+  .post-content .custom-license-icon-img {
+    flex: 0 0 var(--icon-size);
+    margin-left: calc( var(--icon-size) / 4 );
+    margin-right: calc( var(--icon-size) / 4 );
+  }
+
+  .post-content .custom-license-figcaption {
+    align-self: center;
+    flex: 1 1 auto;
+    font-size:  22px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 350px) {
+  .custom-license-icon-list {
+    --icon-size: 48px;
+    margin: 0;
+  }
+
+  .post-content .custom-license-icon-img {
+    margin-left: 0;
+  }
+
+  .post-content .custom-license-figcaption {
+    font-size: 16px;
+  }
+}

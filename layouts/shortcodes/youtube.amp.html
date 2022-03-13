@@ -1,0 +1,16 @@
+{{- $pc := .Page.Site.Config.Privacy.YouTube -}}
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $playlist := .Get "playlist" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "YouTube Video" }}
+<amp-youtube
+        {{- if $id }} data-videoid="{{ $id }}"{{ end }}
+        {{- if $playlist }} data-param-playlist="{{ . }}"{{ end }}
+        title="{{ $title }}"
+        {{- if $pc.PrivacyEnhanced}} credentials="omit" {{ end }}
+        data-param-modestbranding="true"
+        layout="responsive"
+        width="480"
+        height="270"
+        {{ with .Get "autoplay" }}{{ if eq . "true" }}autoplay{{ end }}{{ end }}
+        {{ with .Get "loop" }}data-param-loop="{{ . }}"{{ end }}
+        {{ with .Get "start" }}data-param-start="{{ . }}"{{ end }}></amp-youtube>
