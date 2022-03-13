@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-    <script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>
+    {{ if .HasShortcode "youtube" }}<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>{{- end }}
+    {{ if .HasShortcode "vimeo" }}<script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>{{- end }}
     {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
     <meta name="robots" content="index, follow">
     {{- else }}
