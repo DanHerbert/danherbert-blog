@@ -4,7 +4,6 @@ title = "Dan Herbert's Blog"
 copyright = "&copy; 2022 [Dan Herbert (see full license)](/blog/copyright/)"
 theme = "PaperMod"
 disableHugoGeneratorInject = true
-enableGitInfo = true
 
 [params]
   # env = "production"
