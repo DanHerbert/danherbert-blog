@@ -1,6 +1,6 @@
 # dan.herbert.io Blog Code
 
-All of the code for my personal blog.
+All of the code for my personal blog at https://dan.herbert.io/blog/
 
 ## Important Maintenance Notes
 
